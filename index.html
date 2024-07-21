@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #splash-screen {
+            background: linear-gradient(180deg, #ffff007b, rgba(255, 0, 0, 0.395));
+            background-size: cover; /* Ensure the image covers the entire area */
+            color: white;
+            width: 100vw; /* Use viewport width for full-width */
+            height: 100vh; /* Use viewport height for full-height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            text-align: center; /* Center-align text */
+            position: relative; /* Needed for positioning the blurred background */
+            overflow: hidden; /* Hide overflow to prevent scrollbars */
+        }
+        
+        .logo-container {
+            position: relative;
+            width: 150px; /* Adjust the size of the logo container as needed */
+            height: 150px; /* Adjust the size of the logo container as needed */
+        }
+        
+        .logo-container::before {
+            content: '';
+            backdrop-filter: blur(10px);
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        
+            background-size: cover;
+            filter: blur(10px); /* Adjust blur intensity */
+            z-index: -1; /* Place behind the logo */
+        }
+        
+        .logo {
+            
+            width: 100%; /* Fit logo to the container */
+            height: 100%; /* Fit logo to the container */
+            animation: fadeIn 2s ease-in-out; /* 2 seconds for the fade-in animation */
+            position: relative; /* Ensure logo is above the blurred background */
+        }
+        
+        /* Fade-in animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="splash-screen">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo" class="logo">
+        </div>
+    </div>
+
+    <script>
+        // Duration of the splash screen in milliseconds (e.g., 3 seconds)
+        const splashDuration = 2000;
+        
+        // Function to hide the splash screen and redirect to another page
+        function hideSplashScreen() {
+            document.getElementById('splash-screen').style.display = 'none';
+            // Redirect to another page
+            window.location.href = 'index1.html';
+        }
+        
+        // Set a timer to hide the splash screen
+        setTimeout(hideSplashScreen, splashDuration);
+    </script>
+</body>
+</html>
