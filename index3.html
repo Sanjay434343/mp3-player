@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+            content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet"
+            href="assets/style/page.css">
+        <link rel="stylesheet"
+            href="assets/style/gmbtn.css">
+        <style>*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: sans-serif;
+    /* font-family: monospace; */
+}
+.container{
+    /* min-height: 90vh; */
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.container .box{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    padding-top: 80px;
+    margin: 1%;
+    border: 1px solid #242938;
+    border-radius: 10px;
+}
+.container .box p{
+    margin-top: 50px;
+    font-weight: 700;
+    border-top: 1px solid #24293877;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0 0;
+}
+.container .box p font{
+    background: #242938;
+    color: #bcdf89;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+footer{
+    text-align: center;
+    padding: 20px 0;
+    background: #324154;
+    color: #e2e8f0;
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+}
+footer h4{
+    margin: 5px 0;
+}
+footer font{
+    color: #d13952;
+    color: #e6445f;
+    font-weight: 400;
+}
+footer a{
+    color: rgb(202, 202, 202);
+    color: inherit;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .container .box{
+        width: 100%;
+    }
+}
+/* main class name */
+.gm-btn{
+    background: none;
+    border: none;
+    padding: 5px 15px;
+    font-size: 16px;
+    line-height: 24px;
+    width: 400;
+    transition: 0.3s;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+}
+.gb-cutter::before,
+.gb-shutter::before,
+.gb-shutter::after,
+.gb-bordered::before,
+.gb-split::before
+{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    transition: 0.5s;
+}
+/* cutter */
+
+.gb-cutter{
+    border: 2px solid var(--gb-51);
+    border-radius: 5px;
+    box-shadow: 3px 3px 0 var(--gb-51);
+    font-size: 1.125rem;
+    font-weight: 700;
+    overflow: hidden;
+    color: var(--gb-51);
+}
+.gb-cutter::before{
+    top: 100%;
+    left: 0;
+    width: 150%;
+    aspect-ratio: 1;
+    background: var(--gb-51);
+    transform: translate(50%,0%) rotateZ(-45deg);
+}
+.gb-cutter:hover::before{
+    transform: translate(-20%,-60%) rotateZ(-45deg);
+}
+.gb-cutter:hover{
+    box-shadow: 0 0 0;
+    color: #eee;
+}
+
+/* shutter */
+.gb-shutter{
+    border: 2px solid var(--gb-51);
+    border-radius: 5px;
+    box-shadow: 3px 3px 0 var(--gb-51);
+    font-size: 1.125rem;
+    font-weight: 700;
+    overflow: hidden;
+    color: var(--gb-51);
+}
+.gb-shutter::after, .gb-shutter::before{
+    top: 0;
+    left: 0;
+    width: 130%;
+    aspect-ratio: 1;
+    background: var(--gb-51);
+}
+.gb-shutter::after{
+    transform: translate(-100%,-80%) rotate(30deg);
+}
+.gb-shutter::before{
+    transform: translate(100%,30%) rotate(30deg);
+}
+.gb-shutter:hover::after{
+    transform: translate(-50%,-50%) rotate(30deg);
+}
+.gb-shutter:hover::before{
+    transform: translate(30%,-10%) rotate(30deg);
+}
+.gb-shutter:hover{
+    color: #eee;
+    box-shadow: 0 0 0;
+}
+
+/* bordered */
+.gb-bordered{
+    background: var(--gb-52);
+    color: #eee;
+    border-radius: 5px;
+}
+.gb-bordered::before{
+    width: calc(100% - 5px);
+    height: calc(100% - 5px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border: 2px solid var(--gb-52);
+    border-radius: 8px;
+}
+.gb-bordered:hover::before{
+    width: calc(100% + 4px);
+    height: calc(100% + 5px);
+}
+.gb-bordered:hover{
+    background: linear-gradient(to left, var(--gb-52),var(--gb-52d));
+}
+
+/* gb-split */
+.gb-split{
+    border: 1px solid #6a5acd;
+    color: #6a5acd;
+    border-radius: 5px;
+    font-size: 1.125rem;
+}
+.gb-split::before{
+    width: 100%;
+    height: 0;
+    background: #6a5acd;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.gb-split:hover::before{
+    height: 100%;
+}
+.gb-split:hover{
+    color: #eee;
+}
+/* Root */
+
+:root{
+    --gb-51: #111827;
+    --gb-52: #2196f3;
+    --gb-52d: #0e71c1;
+}</style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="box">
+                <a class="gm-btn gb-cutter" href"https://sanjay434343.github.io/sara/">GOO</a>
+                <p>class name: <font>LETTER</font>
+                </p>
+            </div>
+            <div class="box">
+                <a class="gm-btn gb-shutter" href="">GOO</a>
+                <p>class name: <font>MUSIC PLAYER</font>
+                </p>
+            </div>
+
+          <script>
+            window.onload = _ => {
+                codes = document.querySelectorAll('.box p font');
+                codes.forEach(code => {
+                    code.addEventListener('click', _ => {
+                        navigator.clipboard.writeText(code.innerText);
+                        code.style.background = "#673ab7";
+                        code.style.color = "#fff";
+                        setInterval(_ => {
+                            code.style.background = "";
+                            code.style.color = "";
+                            code.removeAttribute('style')
+                        }, 1500)
+                    })
+                })
+            }
+        </script>
+    </body>
+           
+
+        
